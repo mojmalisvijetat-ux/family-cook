@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Cook</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="pozadina"></div>
+
+  <main class="aplikacija">
+    <header class="zaglavlje">
+   
+      <p class="podnaslov">Porodična knjiga recepata</p>
+    </header>
+
+    <section class="kartica pretraga-kartica">
+      <h2>Pretraga recepata</h2>
+
+      <div class="mreza-polja">
+        <div class="polje">
+          <label for="pretraga">Pretraži po imenu</label>
+          <input type="text" id="pretraga" placeholder="Upiši ime recepta..." />
+        </div>
+
+        <div class="polje">
+          <label for="filterKategorija">Kategorija</label>
+          <select id="filterKategorija">
+            <option value="sve">Sve kategorije</option>
+            <option value="Slano">Slano</option>
+            <option value="Slatko">Slatko</option>
+            <option value="Supa">Supa</option>
+            <option value="Piće">Piće</option>
+            <option value="Vegetarijansko">Vegetarijansko</option>
+          </select>
+        </div>
+
+        <div class="polje">
+          <label for="filterGrupa">Grupa jela</label>
+          <select id="filterGrupa">
+            <option value="sve">Sve grupe jela</option>
+            <option value="Tijesto">Tijesto</option>
+            <option value="Jelo na kašiku">Jelo na kašiku</option>
+            <option value="Pečeno jelo">Pečeno jelo</option>
+            <option value="Tjestenina">Tjestenina</option>
+            <option value="Riža">Riža</option>
+            <option value="Meso">Meso</option>
+            <option value="Povrće">Povrće</option>
+            <option value="Salata">Salata</option>
+            <option value="Kolač">Kolač</option>
+            <option value="Torta">Torta</option>
+            <option value="Pecivo">Pecivo</option>
+            <option value="Zimnica">Zimnica</option>
+            <option value="Umak">Umak</option>
+            <option value="Vegetarijansko">Vegetarijansko</option>
+          </select>
+        </div>
+
+        <div class="polje">
+          <label for="filterAutor">Autor</label>
+          <input type="text" id="filterAutor" placeholder="Upiši ime autora..." />
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+        </div>
+      </div>
+    </section>
+
+    <section class="kartica unos-kartica">
+      <h2>Dodaj novi recept</h2>
+
+      <form id="formaRecept">
+        <div class="mreza-polja">
+          <div class="polje">
+            <label for="ime">Ime recepta</label>
+            <input type="text" id="ime" required />
+          </div>
+
+          <div class="polje">
+            <label for="kategorija">Kategorija</label>
+            <select id="kategorija" required>
+              <option value="">Odaberi kategoriju</option>
+              <option value="Slano">Slano</option>
+              <option value="Slatko">Slatko</option>
+              <option value="Supa">Supa</option>
+              <option value="Piće">Piće</option>
+              <option value="Vegetarijansko">Vegetarijansko</option>
+            </select>
+          </div>
+
+          <div class="polje">
+            <label for="grupa">Grupa jela</label>
+            <select id="grupa" required>
+              <option value="">Odaberi grupu jela</option>
+              <option value="Tijesto">Tijesto</option>
+              <option value="Jelo na kašiku">Jelo na kašiku</option>
+              <option value="Pečeno jelo">Pečeno jelo</option>
+              <option value="Tjestenina">Tjestenina</option>
+              <option value="Riža">Riža</option>
+              <option value="Meso">Meso</option>
+              <option value="Povrće">Povrće</option>
+              <option value="Salata">Salata</option>
+              <option value="Kolač">Kolač</option>
+              <option value="Torta">Torta</option>
+              <option value="Pecivo">Pecivo</option>
+              <option value="Zimnica">Zimnica</option>
+              <option value="Umak">Umak</option>
+              <option value="Vegetarijansko">Vegetarijansko</option>
+            </select>
+          </div>
+
+          <div class="polje">
+            <label for="autor">Autor</label>
+            <input type="text" id="autor" placeholder="Naprimjer: Mama, Nana, Amir..." />
+          </div>
+        </div>
+
+        <div class="polje">
+          <label for="sastojci">Sastojci</label>
+          <textarea id="sastojci" rows="6" placeholder="Upiši sastojke..."></textarea>
+        </div>
+
+        <div class="polje">
+          <label for="priprema">Priprema</label>
+          <textarea id="priprema" rows="6" placeholder="Upiši pripremu..."></textarea>
+        </div>
+
+        <div class="polje">
+          <label for="slike">Slike</label>
+          <input type="file" id="slike" accept="image/*" multiple />
+        </div>
+
+        <div class="dugmad">
+          <button type="submit" id="dugmeSacuvaj">Sačuvaj recept</button>
+          <button type="button" id="dugmeUredi" style="display:none;">Sačuvaj izmjene</button>
+<button type="button" onclick="testUpload()">TEST UPLOAD SLIKE</button>
+<button type="button" onclick="ucitajRecepteIzFirebase()">UCITAJ IZ FIREBASE</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="kartica lista-kartica">
+      <div class="naslov-liste">
+        <h2>Svi recepti</h2>
+        <p id="brojRecepata">Ukupno recepata: 0</p>
+      </div>
+
+      <div id="listaRecepata" class="lista-recepata"></div>
+    </section>
+  </main>
+
+ <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "moje",
+    authDomain: "moje",
+    projectId: "family-cook-77fca",
+    storageBucket: "family-cook-77fca.firebasestorage.app",
+    messagingSenderId: "moje",
+    appId: "moje"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  const storage = firebase.storage();
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

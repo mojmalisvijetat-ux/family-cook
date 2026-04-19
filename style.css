@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  background-image: url("naslovnica.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #3a2a2a;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 200, 220, 0.25);
+  z-index: -1;
+}
+
+.aplikacija {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.zaglavlje {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.zaglavlje {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+.zaglavlje h1 {
+  margin-bottom: 8px;
+  font-size: 2.4rem;
+}
+
+.podnaslov {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #6b5b53;
+}
+
+.zaglavlje.kartica {
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+.kartica h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.mreza-polja {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.polje {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.polje label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.polje input,
+.polje select,
+.polje textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8d1cb;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fffdfa;
+}
+
+.polje textarea {
+  resize: vertical;
+}
+
+.dugmad {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #7b4f3a;
+  color: white;
+  line-height: 1.2;
+}
+
+button:hover {
+  opacity: 0.92;
+}
+
+#dugmeSacuvaj {
+  display: inline-block;
+}
+
+#dugmeUredi {
+  display: none;
+  background: #a06b4f;
+}
+
+.naslov-liste {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.lista-recepata {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.recept-kartica {
+  border: 1px solid #ece4dd;
+  border-radius: 14px;
+  padding: 16px;
+  background: #fffdfa;
+}
+
+.naslov-red {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.recept-kartica h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.dugme-uredi {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  background: #a06b4f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.oznaka-red {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.oznaka {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #f1e3d8;
+  font-size: 0.9rem;
+}
+
+.recept-dio {
+  margin-top: 12px;
+}
+
+.recept-dio strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.prazno {
+  text-align: center;
+  padding: 24px;
+  border-radius: 12px;
+  background: #fff8f2;
+  color: #7a675d;
+}
+
+@media (max-width: 700px) {
+  .aplikacija {
+    padding: 16px;
+  }
+
+  .zaglavlje h1 {
+    font-size: 2rem;
+  }
+
+  .dugmad button {
+    width: auto;
+  }
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  color: #b94b6f;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 12px rgba(185, 75, 111, 0.3);
+}
+.logo-wrap {
+  text-align: center;
+}
+
+.logo-slika {
+  max-width: 280px;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
